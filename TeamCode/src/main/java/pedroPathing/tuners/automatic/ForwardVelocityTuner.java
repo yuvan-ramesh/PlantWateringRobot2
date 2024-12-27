@@ -30,6 +30,8 @@ import java.util.List;
 import pedroPathing.constants.FConstants;
 import pedroPathing.constants.LConstants;
 
+import pedroPathing.constants.FConstants;
+
 /**
  * This is the ForwardVelocityTuner autonomous follower OpMode. This runs the robot forwards at max
  * power until it reaches some specified distance. It records the most recent velocities, and on
@@ -71,7 +73,7 @@ public class ForwardVelocityTuner extends OpMode {
      */
     @Override
     public void init() {
-        poseUpdater = new PoseUpdater(hardwareMap, FConstants.class, LConstants.class);
+        poseUpdater = new PoseUpdater(hardwareMap);
 
         leftFront = hardwareMap.get(DcMotorEx.class, leftFrontMotorName);
         leftRear = hardwareMap.get(DcMotorEx.class, leftRearMotorName);
