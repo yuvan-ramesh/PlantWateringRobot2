@@ -1,13 +1,14 @@
 package pedroPathing.tuners.automatic;
 
-import static com.pedropathing.tuning.FollowerConstants.leftFrontMotorName;
-import static com.pedropathing.tuning.FollowerConstants.leftRearMotorName;
-import static com.pedropathing.tuning.FollowerConstants.rightFrontMotorName;
-import static com.pedropathing.tuning.FollowerConstants.rightRearMotorName;
-import static com.pedropathing.tuning.FollowerConstants.leftFrontMotorDirection;
-import static com.pedropathing.tuning.FollowerConstants.leftRearMotorDirection;
-import static com.pedropathing.tuning.FollowerConstants.rightFrontMotorDirection;
-import static com.pedropathing.tuning.FollowerConstants.rightRearMotorDirection;
+
+import static com.pedropathing.follower.FollowerConstants.leftFrontMotorName;
+import static com.pedropathing.follower.FollowerConstants.leftRearMotorName;
+import static com.pedropathing.follower.FollowerConstants.rightFrontMotorName;
+import static com.pedropathing.follower.FollowerConstants.rightRearMotorName;
+import static com.pedropathing.follower.FollowerConstants.leftFrontMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.leftRearMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.rightFrontMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.rightRearMotorDirection;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -27,8 +28,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import pedroPathing.constants.FConstants;
+import pedroPathing.constants.LConstants;
+
 /**
- * This is the StrafeVelocityTuner autonomous tuning OpMode. This runs the robot right at max
+ * This is the StrafeVelocityTuner autonomous follower OpMode. This runs the robot right at max
  * power until it reaches some specified distance. It records the most recent velocities, and on
  * reaching the end of the distance, it averages them and prints out the velocity obtained. It is
  * recommended to run this multiple times on a full battery to get the best results. What this does
@@ -43,7 +47,7 @@ import java.util.List;
  * @version 1.0, 3/13/2024
  */
 @Config
-@Autonomous(name = "Strafe Velocity Tuner", group = "Autonomous Pathing Tuning")
+@Autonomous(name = "Strafe Velocity Tuner", group = "Autonomous Pathing follower")
 public class StrafeVelocityTuner extends OpMode {
     private ArrayList<Double> velocities = new ArrayList<>();
 
@@ -68,7 +72,7 @@ public class StrafeVelocityTuner extends OpMode {
      */
     @Override
     public void init() {
-        poseUpdater = new PoseUpdater(hardwareMap);
+        poseUpdater = new PoseUpdater(hardwareMap, FConstants.class, LConstants.class);
 
         leftFront = hardwareMap.get(DcMotorEx.class, leftFrontMotorName);
         leftRear = hardwareMap.get(DcMotorEx.class, leftRearMotorName);

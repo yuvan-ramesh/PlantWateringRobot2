@@ -1,13 +1,13 @@
 package pedroPathing.tuners.localization;
 
-import static com.pedropathing.tuning.FollowerConstants.leftFrontMotorName;
-import static com.pedropathing.tuning.FollowerConstants.leftRearMotorName;
-import static com.pedropathing.tuning.FollowerConstants.rightFrontMotorName;
-import static com.pedropathing.tuning.FollowerConstants.rightRearMotorName;
-import static com.pedropathing.tuning.FollowerConstants.leftFrontMotorDirection;
-import static com.pedropathing.tuning.FollowerConstants.leftRearMotorDirection;
-import static com.pedropathing.tuning.FollowerConstants.rightFrontMotorDirection;
-import static com.pedropathing.tuning.FollowerConstants.rightRearMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.leftFrontMotorName;
+import static com.pedropathing.follower.FollowerConstants.leftRearMotorName;
+import static com.pedropathing.follower.FollowerConstants.rightFrontMotorName;
+import static com.pedropathing.follower.FollowerConstants.rightRearMotorName;
+import static com.pedropathing.follower.FollowerConstants.leftFrontMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.leftRearMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.rightFrontMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.rightRearMotorDirection;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -26,6 +26,8 @@ import com.pedropathing.util.Drawing;
 import java.util.Arrays;
 import java.util.List;
 
+import pedroPathing.constants.*;
+
 /**
  * This is the LocalizationTest OpMode. This is basically just a simple mecanum drive attached to a
  * PoseUpdater. The OpMode will print out the robot's pose to telemetry as well as draw the robot
@@ -35,7 +37,7 @@ import java.util.List;
  * @version 1.0, 5/6/2024
  */
 @Config
-@TeleOp(group = "Pedro Pathing Tuning", name = "Localization Test")
+@TeleOp(group = "Pedro Pathing follower", name = "Localization Test")
 public class LocalizationTest extends OpMode {
     private PoseUpdater poseUpdater;
     private DashboardPoseTracker dashboardPoseTracker;
@@ -52,7 +54,7 @@ public class LocalizationTest extends OpMode {
      */
     @Override
     public void init() {
-        poseUpdater = new PoseUpdater(hardwareMap);
+        poseUpdater = new PoseUpdater(hardwareMap, FConstants.class, LConstants.class);
 
         dashboardPoseTracker = new DashboardPoseTracker(poseUpdater);
 

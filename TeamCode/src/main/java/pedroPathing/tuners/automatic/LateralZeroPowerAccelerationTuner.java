@@ -1,18 +1,18 @@
 package pedroPathing.tuners.automatic;
 
-import static com.pedropathing.tuning.FollowerConstants.leftFrontMotorName;
-import static com.pedropathing.tuning.FollowerConstants.leftRearMotorName;
-import static com.pedropathing.tuning.FollowerConstants.rightFrontMotorName;
-import static com.pedropathing.tuning.FollowerConstants.rightRearMotorName;
-import static com.pedropathing.tuning.FollowerConstants.leftFrontMotorDirection;
-import static com.pedropathing.tuning.FollowerConstants.leftRearMotorDirection;
-import static com.pedropathing.tuning.FollowerConstants.rightFrontMotorDirection;
-import static com.pedropathing.tuning.FollowerConstants.rightRearMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.leftFrontMotorName;
+import static com.pedropathing.follower.FollowerConstants.leftRearMotorName;
+import static com.pedropathing.follower.FollowerConstants.rightFrontMotorName;
+import static com.pedropathing.follower.FollowerConstants.rightRearMotorName;
+import static com.pedropathing.follower.FollowerConstants.leftFrontMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.leftRearMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.rightFrontMotorDirection;
+import static com.pedropathing.follower.FollowerConstants.rightRearMotorDirection;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
-import com.pedropathing.tuning.FollowerConstants;
+import com.pedropathing.follower.FollowerConstants;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -28,8 +28,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import pedroPathing.constants.FConstants;
+import pedroPathing.constants.LConstants;
+
 /**
- * This is the LateralZeroPowerAccelerationTuner autonomous tuning OpMode. This runs the robot
+ * This is the LateralZeroPowerAccelerationTuner autonomous follower OpMode. This runs the robot
  * to the right until a specified velocity is achieved. Then, the robot cuts power to the motors, setting
  * them to zero power. The deceleration, or negative acceleration, is then measured until the robot
  * stops. The accelerations across the entire time the robot is slowing down is then averaged and
@@ -44,7 +47,7 @@ import java.util.List;
  * @version 1.0, 3/13/2024
  */
 @Config
-@Autonomous(name = "Lateral Zero Power Acceleration Tuner", group = "Autonomous Pathing Tuning")
+@Autonomous(name = "Lateral Zero Power Acceleration Tuner", group = "Autonomous Pathing follower")
 public class LateralZeroPowerAccelerationTuner extends OpMode {
     private ArrayList<Double> accelerations = new ArrayList<>();
 
@@ -72,7 +75,7 @@ public class LateralZeroPowerAccelerationTuner extends OpMode {
      */
     @Override
     public void init() {
-        poseUpdater = new PoseUpdater(hardwareMap);
+        poseUpdater = new PoseUpdater(hardwareMap, FConstants.class, LConstants.class);
 
         leftFront = hardwareMap.get(DcMotorEx.class, leftFrontMotorName);
         leftRear = hardwareMap.get(DcMotorEx.class, leftRearMotorName);

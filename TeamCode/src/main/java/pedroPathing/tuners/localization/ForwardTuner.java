@@ -11,6 +11,9 @@ import com.pedropathing.localization.PoseUpdater;
 import com.pedropathing.util.DashboardPoseTracker;
 import com.pedropathing.util.Drawing;
 
+import pedroPathing.constants.FConstants;
+import pedroPathing.constants.LConstants;
+
 /**
  * This is the ForwardTuner OpMode. This tracks the forward movement of the robot and displays the
  * necessary ticks to inches multiplier. This displayed multiplier is what's necessary to scale the
@@ -39,7 +42,7 @@ public class ForwardTuner extends OpMode {
      */
     @Override
     public void init() {
-        poseUpdater = new PoseUpdater(hardwareMap);
+        poseUpdater = new PoseUpdater(hardwareMap, FConstants.class, LConstants.class);
 
         dashboardPoseTracker = new DashboardPoseTracker(poseUpdater);
 
