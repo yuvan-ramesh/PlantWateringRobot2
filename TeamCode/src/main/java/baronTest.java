@@ -16,7 +16,7 @@ public class baronTest extends OpMode {
 
     @Override
     public void start() {
-        Follower f = new Follower(hardwareMap);
+        Follower f = new Follower(hardwareMap, FConstants.class, LConstants.class);
     }
 
     @Override

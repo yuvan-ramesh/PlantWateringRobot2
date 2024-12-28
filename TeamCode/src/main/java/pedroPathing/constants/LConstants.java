@@ -14,6 +14,6 @@ import com.qualcomm.hardware.sparkfun.SparkFunOTOS.Pose2D;
 @Config
 public class LConstants {
     static {
-        OTOSConstants.offset = new Pose2D(3, 2, Math.PI / 2);
+        OTOSConstants.offset = new Pose2D(3, 2, (3  *Math.PI) / 2);
     }
 }
