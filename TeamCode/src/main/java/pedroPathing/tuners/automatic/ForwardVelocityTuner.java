@@ -105,6 +105,7 @@ public class ForwardVelocityTuner extends OpMode {
         telemetryA.addLine("Make sure you have enough room, since the robot has inertia after cutting power.");
         telemetryA.addLine("After running the distance, the robot will cut power from the drivetrain and display the forward velocity.");
         telemetryA.addLine("Press CROSS or A on game pad 1 to stop.");
+        telemetryA.addData("pose", poseUpdater.getPose());
         telemetryA.update();
 
     }
