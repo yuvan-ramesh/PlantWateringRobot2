@@ -26,7 +26,7 @@ import pedroPathing.constants.LConstants;
  * @version 1.0, 3/12/2024
  */
 @Config
-@Autonomous (name = "Circle", group = "Autonomous Pathing Tuning")
+@Autonomous (name = "Circle", group = "Verification")
 public class Circle extends OpMode {
     private Telemetry telemetryA;
 
