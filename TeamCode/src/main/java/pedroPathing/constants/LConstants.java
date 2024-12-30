@@ -1,9 +1,7 @@
 package pedroPathing.constants;
 
-import com.pedropathing.localization.Encoder;
-import com.pedropathing.localization.constants.OTOSConstants;
-import com.pedropathing.localization.constants.ThreeWheelConstants;
-import com.qualcomm.hardware.sparkfun.SparkFunOTOS;
+import com.pedropathing.localization.*;
+import com.pedropathing.localization.constants.*;
 
 public class LConstants {
     static {
@@ -19,7 +17,6 @@ public class LConstants {
         ThreeWheelConstants.leftEncoderDirection = Encoder.REVERSE;
         ThreeWheelConstants.rightEncoderDirection = Encoder.REVERSE;
         ThreeWheelConstants.strafeEncoderDirection = Encoder.FORWARD;
-
     }
 }
 
