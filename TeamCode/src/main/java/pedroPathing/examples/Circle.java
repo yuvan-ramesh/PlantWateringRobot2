@@ -1,4 +1,4 @@
-package pedroPathing.tuners_tests.verification;
+package pedroPathing.examples;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -26,7 +26,7 @@ import pedroPathing.constants.LConstants;
  * @version 1.0, 3/12/2024
  */
 @Config
-@Autonomous (name = "Circle", group = "Verification")
+@Autonomous (name = "Circle", group = "Examples")
 public class Circle extends OpMode {
     private Telemetry telemetryA;
 
