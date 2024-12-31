@@ -17,7 +17,7 @@ import pedroPathing.constants.LConstants;
 
 
 /**
- * This is the Circle autonomous OpMode.
+ * This is the Triangle autonomous OpMode.
  * It runs the robot in a triangle, with the starting point being the bottom-middle point.
  *
  * @author Baron Henderson - 20077 The Indubitables
